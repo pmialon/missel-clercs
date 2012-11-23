@@ -1,0 +1,108 @@
+% Type de document, un A4 plié en deux de type article
+\documentclass[12pt,twoside,a4paper]{article}
+
+% On définit les types de police pour le document
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% On impose les règles de typographie française
+\usepackage[francais]{babel}
+
+% Utilisation d'une extension permettant de faire varier les interlignes
+\usepackage{setspace}
+
+% inclusion des graphique en ps
+\usepackage{lscape, graphicx, epsfig}
+
+% figure flottante
+\usepackage{floatflt}
+
+% utilisation des tableaux à largeur automatique et oui ils existent !
+\usepackage{tabularx}
+
+% utilisation du mode multicolonnes
+\usepackage{multicol}
+
+% pour les url
+\usepackage{url}
+
+% pour avoir la couleur
+\usepackage{color}
+
+% Utilisation du souligné  pour pouvoir utiliser \uline
+\usepackage[normalem]{ulem}
+
+ % On peut aussi définir les marges à la main mais c'est plus bourrin :
+\setlength{\oddsidemargin}{-1cm}
+\setlength{\evensidemargin}{-1cm}
+%%\setlength{\evensidemargin}{-1.0cm}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0.2cm}
+\setlength{\topmargin}{-3.5cm}
+\setlength{\topmargin}{-2.0cm}
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-4.5cm}
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-4.0cm}
+
+% On définit une nouvelle macro \rub pour les rubriques
+\newcommand{\rub}[2]{{\small \textcolor{red}{\textsc{#1}~: \tiny{#2}}}}
+\newcommand{\siecle}[1]{\begin{math}\textsc{#1}^{e}\end{math}}
+\newcommand{\cel}[1]{{\footnotesize\textcolor{blue}{\emph{#1}}}}
+\newcommand{\comment}[1]{\emph{#1}}
+
+% Font Sizes
+% 
+% \tiny
+% \scriptsize
+% \footnotesize
+% \small
+% \normalsize
+% \large
+% \Large
+% \LARGE
+% \huge
+% \Huge
+
+
+% On définit le titre dans le header !!!!
+\title{Missel à usage des clercs 
+(Saint Étienne du mont)
+ }
+
+% On définit les auteurs du document 
+%\author{Pierre-Gilles \textsc{Mialon} }
+
+
+\begin{document}
+
+% chant d’entrée (voir Introït), 
+% salut du célébrant, 
+% acte pénitentiel, 
+% Kyrie, 
+% Gloria, 
+% Collecte, 
+% première lecture (Ancien Testament), 
+% Psaume ou Graduel, 
+% deuxième lec­ture (le plus souvent empruntée à saint Paul), 
+% Alleluia, 
+% évangile, 
+% homélie, 
+% Credo, 
+% Prière universelle, 
+% préparation des dons, 
+% Prière sur les offrandes, 
+% Prière Eucharistique, 
+% Pater et son embolisme, 
+% prière et rite de la paix, 
+% fraction du pain, 
+% communion, 
+% Prière après la communion, 
+% bénédiction et Renvoi de l’assemblée.
+
+\include{rites-initiaux}
+\include{liturgie-de-la-parole}
+\include{liturgie-eucharistique}
+\include{rites-de-conclusion}
+
+\end{document}
