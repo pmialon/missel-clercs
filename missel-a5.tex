@@ -1,5 +1,5 @@
 % Type de document, un A4 plié en deux de type article
-\documentclass[10pt,twoside,draft,a4paper]{article}
+\documentclass[6pt,twoside,draft,a5paper]{article}
 
 % On définit les types de police pour le document
 \usepackage[T1]{fontenc}
@@ -32,18 +32,24 @@
 % Utilisation du souligné  pour pouvoir utiliser \uline
 \usepackage[normalem]{ulem}
 
- % On peut aussi définir les marges à la main mais c'est plus bourrin :
-\setlength{\oddsidemargin}{-1cm}
-\setlength{\evensidemargin}{-1cm}
-%%\setlength{\evensidemargin}{-1.0cm}
-\setlength{\parindent}{0in}
-\setlength{\parskip}{0.2cm}
-\setlength{\topmargin}{-3.5cm}
-\setlength{\topmargin}{-2.0cm}
-\setlength{\textwidth}{\paperwidth}
-\addtolength{\textwidth}{-4.5cm}
-\setlength{\textheight}{\paperheight}
-\addtolength{\textheight}{-4.0cm}
+% On peut aussi définir les marges à la main mais c'est plus bourrin :
+\usepackage{layouts}
+\usepackage{layout}
+%\setlength{\hoffset}{-1in}
+%\setlength{\voffset}{-1in}
+%\setlength{\marginparwidth}{0cm}
+
+%\setlength{\oddsidemargin}{-0.3cm}
+%\setlength{\evensidemargin}{0.3cm}
+% %%\setlength{\evensidemargin}{-1.0cm}
+% \setlength{\parindent}{0in}
+% \setlength{\parskip}{0.2cm}
+%\setlength{\topmargin}{0cm}
+% \setlength{\topmargin}{-2.0cm}
+%\setlength{\textwidth}{\paperwidth}
+%\addtolength{\textwidth}{-3cm}
+%\setlength{\textheight}{\paperheight}
+%\addtolength{\textheight}{-2.5cm}
 
 % On définit une nouvelle macro \rub pour les rubriques
 \newcommand{\rub}[2]{{\small \textcolor{red}{\textsc{#1}~: \tiny{#2}}}}
@@ -75,6 +81,10 @@
 
 
 \begin{document}
+\setlayoutscale{0.33}
+\currentpage
+\pagediagram
+\layout
 
 % chant d’entrée (voir Introït), 
 % salut du célébrant, 
