@@ -1,8 +1,8 @@
 % Type de document, un A4 plié en deux de type article
-\documentclass[6pt,twoside,draft,a5paper]{article}
+\documentclass[10pt,twoside,draft,a5paper]{article}
 
 % On définit les types de police pour le document
-\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
 % On impose les règles de typographie française
@@ -32,30 +32,53 @@
 % Utilisation du souligné  pour pouvoir utiliser \uline
 \usepackage[normalem]{ulem}
 
+
+% Utilisation des header
+\usepackage{fancyhdr}
+\setcounter{secnumdepth}{-2}
+\usepackage[stable]{footmisc}
+
 % On peut aussi définir les marges à la main mais c'est plus bourrin :
+% 1in =72pt
 \usepackage{layouts}
 \usepackage{layout}
-%\setlength{\hoffset}{-1in}
-%\setlength{\voffset}{-1in}
-%\setlength{\marginparwidth}{0cm}
+\setlength{\voffset}{-36pt}
+\setlength{\topmargin}{0pt}
+%\setlength{\headheight}{6pt}
+%\setlength{\headsep}{6pt}
+\setlength{\headheight}{24pt}
+\setlength{\headsep}{24pt}
 
+\setlength{\textheight}{\paperheight}
+% 54 + 0 + 6 + 6 + 30 + 54 
+\addtolength{\textheight}{-150pt}
+
+
+\setlength{\hoffset}{-18pt}
 %\setlength{\oddsidemargin}{-0.3cm}
 %\setlength{\evensidemargin}{0.3cm}
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-108pt}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+
+
 % %%\setlength{\evensidemargin}{-1.0cm}
-% \setlength{\parindent}{0in}
+\setlength{\parindent}{0pt}
 % \setlength{\parskip}{0.2cm}
 %\setlength{\topmargin}{0cm}
 % \setlength{\topmargin}{-2.0cm}
-%\setlength{\textwidth}{\paperwidth}
-%\addtolength{\textwidth}{-3cm}
-%\setlength{\textheight}{\paperheight}
-%\addtolength{\textheight}{-2.5cm}
+
+
+
 
 % On définit une nouvelle macro \rub pour les rubriques
-\newcommand{\rub}[2]{{\small \textcolor{red}{\textsc{#1}~: \tiny{#2}}}}
-\newcommand{\siecle}[1]{\begin{math}\textsc{#1}^{e}\end{math}}
+\newcommand{\rub}[2]{{\scriptsize \textcolor{red}{\textsc{#1}~: \tiny{#2}}}}
 \newcommand{\cel}[1]{{\footnotesize\textcolor{blue}{\emph{#1}}}}
+\newcommand{\rep}[1]{{\small\bf\begin{verse}\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}\noindent#1\end{verse}}}
 \newcommand{\comment}[1]{\emph{#1}}
+\newcommand{\fixme}[1]{{\normalsize\textcolor{green}{\emph{#1}}}}
+\newcommand{\siecle}[1]{\begin{math}\textsc{#1}^{e}\end{math}}
 
 % Font Sizes
 % 
@@ -81,10 +104,18 @@
 
 
 \begin{document}
-\setlayoutscale{0.33}
-\currentpage
-\pagediagram
-\layout
+%\setlayoutscale{0.35}
+%\pagediagram\currentpage
+%\layout
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+
+
+\fancyhead[LE,RO]{\rightmark}
+\fancyhead[LO,RE]{\leftmark}
+\fancyfoot[C]{\thepage}
 
 % chant d’entrée (voir Introït), 
 % salut du célébrant, 
