@@ -1,8 +1,9 @@
 % Type de document, un A4 plié en deux de type article
 \documentclass[10pt,twoside,draft,a5paper]{article}
+%\documentclass[10pt,twoside,a5paper]{article}
 
 % On définit les types de police pour le document
-%\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
 % On impose les règles de typographie française
@@ -32,6 +33,13 @@
 % Utilisation du souligné  pour pouvoir utiliser \uline
 \usepackage[normalem]{ulem}
 
+% package pour les poemes
+\usepackage{verse}
+
+% Permettre aux caratères de varier pour s'adapter à la ligne 
+\usepackage{microtype}
+% \showhyphens{laryngologist dominus}
+%\hyphenation{do-mi-nus do-mi-ni}
 
 % Utilisation des header
 \usepackage{fancyhdr}
@@ -71,11 +79,15 @@
 
 
 
+%\setlength{\vindent}{-90pt}
 
 % On définit une nouvelle macro \rub pour les rubriques
 \newcommand{\rub}[2]{{\scriptsize \textcolor{red}{\textsc{#1}~: \tiny{#2}}}}
 \newcommand{\cel}[1]{{\footnotesize\textcolor{blue}{\emph{#1}}}}
-\newcommand{\rep}[1]{{\small\bf\begin{verse}\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}\noindent#1\end{verse}}}
+\newcommand{\rep}[1]{{\small\bf
+ \begin{verse}[0.9\textwidth]
+  #1
+ \end{verse}}}
 \newcommand{\comment}[1]{\emph{#1}}
 \newcommand{\fixme}[1]{{\normalsize\textcolor{green}{\emph{#1}}}}
 \newcommand{\siecle}[1]{\begin{math}\textsc{#1}^{e}\end{math}}
