@@ -1,0 +1,153 @@
+% Type de document, un A4 plié en deux de type article
+\documentclass[10pt,twoside,draft,a5paper]{article}
+
+% On définit les types de police pour le document
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% On impose les règles de typographie française
+\usepackage[francais]{babel}
+
+% Utilisation d'une extension permettant de faire varier les interlignes
+\usepackage{setspace}
+
+% inclusion des graphique en ps
+\usepackage{lscape, graphicx, epsfig}
+
+% figure flottante
+\usepackage{floatflt}
+
+% utilisation des tableaux à largeur automatique et oui ils existent !
+\usepackage{tabularx}
+
+% utilisation du mode multicolonnes
+\usepackage{multicol}
+
+% pour les url
+\usepackage{url}
+
+% pour avoir la couleur
+\usepackage{color}
+
+% Utilisation du souligné  pour pouvoir utiliser \uline
+\usepackage[normalem]{ulem}
+
+
+% Utilisation des header
+\usepackage{extramarks}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[RO]{\lastrightmark}
+\fancyhead[RE]{\firstleftmark}
+\fancyfoot[C]{\thepage}
+
+\setcounter{secnumdepth}{-2}
+
+\makeatletter
+%\renewcommand{\section}{\@startsection
+%  {section}{1}{0mm}
+%  {\baselineskip}%
+%  {\baselineskip}{\normalfont\normalsize\scshape\centering}}%
+%\makeatother
+
+% On peut aussi définir les marges à la main mais c'est plus bourrin :
+% 1in =72pt
+%\usepackage{layouts}
+%\usepackage{layout}
+%\setlength{\voffset}{-18pt}
+%\setlength{\topmargin}{0pt}
+%\setlength{\headheight}{6pt}
+%\setlength{\headsep}{6pt}
+\setlength{\headheight}{24pt}
+%\setlength{\headsep}{24pt}
+
+%\setlength{\textheight}{\paperheight}
+% 54 + 0 + 6 + 6 + 30 + 54 
+%\addtolength{\textheight}{-150pt}
+
+
+%\setlength{\hoffset}{-18pt}
+%\setlength{\oddsidemargin}{-0.3cm}
+%\setlength{\evensidemargin}{0.3cm}
+%\setlength{\textwidth}{\paperwidth}
+%\addtolength{\textwidth}{-108pt}
+%\setlength{\marginparsep}{0pt}
+%\setlength{\marginparwidth}{0pt}
+
+
+% %%\setlength{\evensidemargin}{-1.0cm}
+%\setlength{\parindent}{0pt}
+% \setlength{\parskip}{0.2cm}
+%\setlength{\topmargin}{0cm}
+% \setlength{\topmargin}{-2.0cm}
+
+
+
+
+% On définit une nouvelle macro \rub pour les rubriques
+\newcommand{\rub}[2]{{\scriptsize \textcolor{red}{\textsc{#1}~: \tiny{#2}}}}
+\newcommand{\cel}[1]{{\footnotesize\textcolor{blue}{\emph{#1}}}}
+\newcommand{\rep}[1]{{\bf\begin{verse}\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}\noindent#1\end{verse}}}
+\newcommand{\comment}[1]{\emph{#1}}
+\newcommand{\fixme}[1]{{\normalsize\textcolor{green}{\emph{#1}}}}
+\newcommand{\siecle}[1]{\begin{math}\textsc{#1}^{e}\end{math}}
+
+% Font Sizes
+% 
+% \tiny
+% \scriptsize
+% \footnotesize
+% \small
+% \normalsize
+% \large
+% \Large
+% \LARGE
+% \huge
+% \Huge
+
+
+% On définit le titre dans le header !!!!
+\title{Missel à usage des clercs 
+(Saint Étienne du mont)
+ }
+
+% On définit les auteurs du document 
+%\author{Pierre-Gilles \textsc{Mialon} }
+
+
+\begin{document}
+%\setlayoutscale{0.35}
+%\pagediagram\currentpage
+%\layout
+
+
+% chant d’entrée (voir Introït), 
+% salut du célébrant, 
+% acte pénitentiel, 
+% Kyrie, 
+% Gloria, 
+% Collecte, 
+% première lecture (Ancien Testament), 
+% Psaume ou Graduel, 
+% deuxième lec­ture (le plus souvent empruntée à saint Paul), 
+% Alleluia, 
+% évangile, 
+% homélie, 
+% Credo, 
+% Prière universelle, 
+% préparation des dons, 
+% Prière sur les offrandes, 
+% Prière Eucharistique, 
+% Pater et son embolisme, 
+% prière et rite de la paix, 
+% fraction du pain, 
+% communion, 
+% Prière après la communion, 
+% bénédiction et Renvoi de l’assemblée.
+
+\include{rites-initiaux}
+\include{liturgie-de-la-parole}
+\include{liturgie-eucharistique}
+\include{rites-de-conclusion}
+
+\end{document}
