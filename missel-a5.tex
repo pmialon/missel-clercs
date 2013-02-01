@@ -31,6 +31,7 @@
 
 % pour avoir la couleur
 \usepackage{color}
+\usepackage{xcolor}
 
 % Utilisation du souligné  pour pouvoir utiliser \uline
 \usepackage[normalem]{ulem}
@@ -49,7 +50,8 @@
 \usepackage[stable]{footmisc}
 
 % On peut aussi définir les marges à la main mais c'est plus bourrin :
-% 1in =72pt
+% 1in = 72pt = 2.54cm
+% 1pt ~ 3.53 mm
 \usepackage{layouts}
 \usepackage{layout}
 \setlength{\voffset}{-36pt}
@@ -65,12 +67,13 @@
 
 
 \setlength{\hoffset}{-18pt}
-%\setlength{\oddsidemargin}{-0.3cm}
-%\setlength{\evensidemargin}{0.3cm}
+\setlength{\oddsidemargin}{10pt}
+\setlength{\evensidemargin}{37pt}
 \setlength{\textwidth}{\paperwidth}
-\addtolength{\textwidth}{-108pt}
-\setlength{\marginparsep}{0pt}
-\setlength{\marginparwidth}{0pt}
+%\addtolength{\textwidth}{-108pt}
+\addtolength{\textwidth}{-166pt}
+%\setlength{\marginparsep}{11pt}
+\setlength{\marginparwidth}{47pt}
 
 
 % %%\setlength{\evensidemargin}{-1.0cm}
@@ -83,14 +86,23 @@
 
 %\setlength{\vindent}{-90pt}
 
+% Inverser les notes de marges 
+% \reversemarginpar
+%\usepackage{everyshi}% http://ctan.org/pkg/everyshi
+%\usepackage{xifthen}% http://ctan.org/pkg/xifthen
+\usepackage{marginnote}
+
+
 % On définit une nouvelle macro \rub pour les rubriques
-\newcommand{\rub}[2]{{\scriptsize \textcolor{red}{\textsc{#1}~: \tiny{#2}}}}
-\newcommand{\cel}[1]{{\footnotesize\textcolor{blue}{\emph{#1}}}}
+\newcommand{\rub}[2]{{\scriptsize\bf \textcolor{red}{\textsc{#1}~: \tiny{#2}}}}
+\newcommand{\cel}[1]{{\footnotesize\textcolor{violet}{\emph{#1}}}}
 \newcommand{\rep}[1]{{\small\bf
  \begin{verse}[0.9\textwidth]
   #1
  \end{verse}}}
-\newcommand{\comment}[1]{\emph{#1}}
+\newcommand{\comment}[1]{{\footnotesize\emph{#1}}}
+\newcommand{\expl}[1]{{\marginnote{\scriptsize#1}}}
+%\newcommand{\expl}[1]{\footnote{#1}}
 \newcommand{\fixme}[1]{{\normalsize\textcolor{green}{\emph{#1}}}}
 \newcommand{\siecle}[1]{\begin{math}\textsc{#1}^{e}\end{math}}
 
@@ -109,7 +121,7 @@
 
 
 % On définit le titre dans le header !!!!
-\title{Missel à usage des clercs 
+\title{Missel Dominical à usage des Clercs 
 (Saint Étienne du mont)
  }
 
@@ -118,9 +130,14 @@
 
 
 \begin{document}
-%\setlayoutscale{0.35}
-%\pagediagram\currentpage
-%\layout
+\begin{spacing}{0.9}
+
+%\EveryShipout{%
+%  \ifthenelse{\isodd{\value{page}}}%
+%    {\global\marginparsep=22pt}% Next page is even
+%    {\global\marginparsep=11pt}% Next page is odd
+%}
+
 
 \pagestyle{fancy}
 \fancyhead{}
@@ -130,6 +147,11 @@
 \fancyhead[LE,RO]{\rightmark}
 \fancyhead[LO,RE]{\leftmark}
 \fancyfoot[C]{\thepage}
+
+%\setlayoutscale{0.35}
+%\pagediagram\currentpage
+%\layout
+
 
 % chant d’entrée (voir Introït), 
 % salut du célébrant, 
@@ -159,5 +181,6 @@
 \include{liturgie-de-la-parole}
 \include{liturgie-eucharistique}
 \include{rites-de-conclusion}
+\end{spacing}
 
 \end{document}
