@@ -1,11 +1,12 @@
 % Type de document, un A4 plié en deux de type article
-\documentclass[10pt,twoside,draft,a5paper]{article}
-%\documentclass[10pt,twoside,a5paper]{article}
+%\documentclass[10pt,twoside,draft,a5paper]{article}
+\documentclass[10pt,twoside,a5paper]{article}
 
 % On définit les types de police pour le document
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 %\usepackage{amssymb,amsmath}
+\usepackage{lmodern}
 
 % On impose les règles de typographie française
 \usepackage[francais]{babel}
@@ -43,6 +44,7 @@
 \usepackage{microtype}
 % \showhyphens{laryngologist dominus}
 %\hyphenation{do-mi-nus do-mi-ni}
+\hbadness=1000
 
 % Utilisation des header
 \usepackage{fancyhdr}

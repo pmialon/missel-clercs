@@ -1,11 +1,13 @@
 % Type de document, un A4 plié en deux de type article
-\documentclass[10pt,twoside,draft,a5paper]{article}
-%\documentclass[10pt,twoside,a5paper]{article}
+%\documentclass[10pt,twoside,draft,a5paper]{article}
+\documentclass[10pt,twoside,a5paper]{article}
 
 % On définit les types de police pour le document
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 %\usepackage{amssymb,amsmath}
+\usepackage{lmodern} \normalfont
+\DeclareFontShape{T1}{lmr}{bx}{sc} { <-> ssub * cmr/bx/sc }{}
 
 % On impose les règles de typographie française
 \usepackage[francais]{babel}
@@ -43,6 +45,7 @@
 \usepackage{microtype}
 % \showhyphens{laryngologist dominus}
 %\hyphenation{do-mi-nus do-mi-ni}
+\hbadness=1000
 
 % Utilisation des header
 \usepackage{fancyhdr}
@@ -87,15 +90,25 @@
 %\setlength{\vindent}{-90pt}
 
 % Inverser les notes de marges 
-% \reversemarginpar
-%\usepackage{everyshi}% http://ctan.org/pkg/everyshi
-%\usepackage{xifthen}% http://ctan.org/pkg/xifthen
 \usepackage{marginnote}
 
 
 % On définit une nouvelle macro \rub pour les rubriques
-\newcommand{\rub}[2]{{\scriptsize\bf \textcolor{red}{\textsc{#1}~: \tiny{#2}}}}
-\newcommand{\cel}[1]{{\footnotesize\textcolor{violet}{\emph{#1}}}}
+% \newcommand{\rub}[2]{{\scriptsize\bf \textcolor{red}{\textsc{#1}~: \tiny{#2}}}}
+% \newcommand{\cel}[1]{{\footnotesize\textcolor{violet}{\emph{#1}}}}
+% \newcommand{\rep}[1]{{\small\bf
+%  \begin{verse}[0.9\textwidth]
+%   #1
+%  \end{verse}}}
+% \newcommand{\comment}[1]{{\footnotesize\emph{#1}}}
+% \newcommand{\expl}[1]{{\marginnote{\scriptsize#1}}}
+% \newcommand{\fixme}[1]{{\normalsize\textcolor{green}{\emph{#1}}}}
+% \newcommand{\siecle}[1]{\begin{math}\textsc{#1}^{e}\end{math}}
+
+
+% On définit une nouvelle macro \rub pour les rubriques
+\newcommand{\rub}[2]{{\scriptsize\bf \textcolor{darkgray}{\textsc{#1}~: \tiny{#2}}}}
+\newcommand{\cel}[1]{{\footnotesize\textcolor{gray}{\emph{#1}}}}
 \newcommand{\rep}[1]{{\small\bf
  \begin{verse}[0.9\textwidth]
   #1
@@ -103,8 +116,9 @@
 \newcommand{\comment}[1]{{\footnotesize\emph{#1}}}
 \newcommand{\expl}[1]{{\marginnote{\scriptsize#1}}}
 %\newcommand{\expl}[1]{\footnote{#1}}
-\newcommand{\fixme}[1]{{\normalsize\textcolor{green}{\emph{#1}}}}
+\newcommand{\fixme}[1]{{\normalsize\textcolor{lightgray}{\emph{#1}}}}
 \newcommand{\siecle}[1]{\begin{math}\textsc{#1}^{e}\end{math}}
+
 
 % Font Sizes
 % 
@@ -132,17 +146,9 @@
 \begin{document}
 \begin{spacing}{0.9}
 
-%\EveryShipout{%
-%  \ifthenelse{\isodd{\value{page}}}%
-%    {\global\marginparsep=22pt}% Next page is even
-%    {\global\marginparsep=11pt}% Next page is odd
-%}
-
-
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-
 
 \fancyhead[LE,RO]{\rightmark}
 \fancyhead[LO,RE]{\leftmark}
